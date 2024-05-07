@@ -18,8 +18,8 @@
                     </div>
                 </div>
                 <div class="flex justify-center gap-4 p-5">
-                    <NuxtLink :to="`/pokemon/${pokemon.pokedexId}`" class="bg-primary text-background py-2 px-4 rounded-md">Details</NuxtLink>
-                    <button @click="removeFromTeam(pokemon)" class="bg-destructive text-background py-2 px-4 rounded-md">Remove</button>
+                    <NuxtLink :to="`/pokemon/${pokemon.pokedexId}`" class="bg-primary text-background py-2 px-4 rounded-md hover:bg-secondary duration-200">Details</NuxtLink>
+                    <button @click="removeFromTeam(pokemon)" class="bg-destructive text-background py-2 px-4 rounded-md hover:bg-secondary duration-200">Remove</button>
                 </div> 
             </div>  
         </section>

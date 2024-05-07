@@ -13,19 +13,15 @@
                     <h2 class="text-2xl font-bold my-2">Evolutions</h2>
                     <div class="flex flex-wrap gap-4">
                         <div v-if="data.apiPreEvolution !== 'none'" class="flex justify-center gap-4">
-                            <span class="bg-warning text-background py-2 px-4 rounded-md">
-                                <NuxtLink :to="`/pokemon/${data.apiPreEvolution.pokedexIdd}`">
-                                    {{ data.apiPreEvolution.name }}
-                                </NuxtLink>
-                            </span>
+                            <NuxtLink :to="`/pokemon/${data.apiPreEvolution.pokedexIdd}`" class="bg-warning text-background py-2 px-4 rounded-md hover:bg-secondary duration-200 cursor-pointer">
+                                {{ data.apiPreEvolution.name }}
+                            </NuxtLink>
                         </div>
     
                         <div v-if="data.apiEvolutions.length > 0" class="flex justify-center gap-4">
-                            <span v-for="evolution in data.apiEvolutions" :key="evolution.id" class="bg-destructive text-background py-2 px-4 rounded-md">
-                                <NuxtLink :to="`/pokemon/${evolution.pokedexId}`">
-                                    {{ evolution.name }}
-                                </NuxtLink>
-                            </span>
+                            <NuxtLink :to="`/pokemon/${evolution.pokedexId}`" v-for="evolution in data.apiEvolutions" :key="evolution.id" class="bg-destructive text-background py-2 px-4 rounded-md hover:bg-secondary duration-200">
+                                {{ evolution.name }}
+                            </NuxtLink>
                         </div>
                     </div>
                     <h2 class="text-2xl font-bold my-2">Stats</h2>

@@ -17,7 +17,7 @@
                 <p class="text-md mt-2">DEF: {{ pokemon.stats.defense }}</p>
             </div>
             <div class="py-4 flex flex-col gap-2">
-                <NuxtLink :to="`/pokemon/${pokemon.id}`" class="w-full bg-primary text-background py-2 rounded-md block text-center">View details</NuxtLink>
+                <NuxtLink :to="`/pokemon/${pokemon.id}`" class="w-full bg-primary text-background py-2 rounded-md block text-center hover:bg-secondary duration-200">View details</NuxtLink>
                 <AddToTeamButton :pokemon="pokemon" />
             </div>
         </div>
