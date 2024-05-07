@@ -17,12 +17,23 @@
                         </div>  
                     </div>
                 </div>
+                <div class="flex justify-center gap-4 p-5">
+                    <NuxtLink :to="`/pokemon/${pokemon.pokedexId}`" class="bg-primary text-background py-2 px-4 rounded-md">Details</NuxtLink>
+                    <button @click="removeFromTeam(pokemon)" class="bg-destructive text-background py-2 px-4 rounded-md">Remove</button>
+                </div> 
             </div>  
         </section>
+        <div v-if="team.length === 0" class="text-center mt-8 w-full">
+            <p class="text-red-500">Your team is empty, you can add up to 6 pokemons</p>
+        </div>
     </main>
 
 </template>
 
 <script setup>
     const team = useState('team', () => []);
+
+    const removeFromTeam = (pokemon) => {
+        team.value = team.value.filter(poke => poke.id !== pokemon.id);
+    };
 </script>

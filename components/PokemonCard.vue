@@ -3,8 +3,13 @@
         <NuxtImg v-if="pokemon.image" :src="pokemon.image" :alt="pokemon.name" class="object-contain object-center h-20 w-full" />
         <span v-else class="bg-primary text-background text-2xl font-bold h-20 w-full flex items-center justify-center">No image</span>
         <div class="p-4">
-            <div class="px-2">
+            <div class="px-2 flex justify-between items-center">
                 <h3 class="text-xl font-bold my-2">{{ pokemon.name }}</h3>
+                <div class="flex flex-wrap gap-2">
+                    <span v-for="pokeType in pokemon.apiTypes" :key="pokeType" class="text-background py-1 px-2 rounded-md text-sm">
+                        <NuxtImg :src="pokeType.image" :alt="pokeType.name" class="w-6 h-6 inline-block mr-1" />
+                    </span>
+                </div>
             </div>
             <div class="flex flex-wrap justify-around gap-2">
                 <p class="text-md mt-2">PV: {{ pokemon.stats.HP }}</p>

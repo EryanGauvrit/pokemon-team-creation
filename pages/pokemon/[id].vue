@@ -9,10 +9,10 @@
                 <div class="flex justify-center">
                     <NuxtImg :src="data.image" :alt="data.name" class="w-64 h-64" />
                 </div>
-                <div>
+                <div class="max-w-xs m-auto">
                     <h2 class="text-2xl font-bold my-2">Evolutions</h2>
                     <div class="flex flex-wrap gap-4">
-                        <div v-if="data.apiPreEvolution" class="flex justify-center gap-4">
+                        <div v-if="data.apiPreEvolution !== 'none'" class="flex justify-center gap-4">
                             <span class="bg-warning text-background py-2 px-4 rounded-md">
                                 <NuxtLink :to="`/pokemon/${data.apiPreEvolution.pokedexIdd}`">
                                     {{ data.apiPreEvolution.name }}
@@ -28,8 +28,6 @@
                             </span>
                         </div>
                     </div>
-                </div>
-                <div class="max-w-xs m-auto">
                     <h2 class="text-2xl font-bold my-2">Stats</h2>
                     <div class="flex flex-wrap justify-around gap-x-4">
                         <p class="text-md mt-2">PV: {{ data.stats.HP }}</p>
@@ -39,20 +37,18 @@
                         <p class="text-md mt-2">SPE DEF: {{ data.stats.special_defense }}</p>
                         <p class="text-md mt-2">SPEED: {{ data.stats.speed }}</p>
                     </div>
-                </div>
-            </div>
-            <div>
-                <h2 class="text-2xl font-bold my-2">Types</h2>
-                <div class="flex justify-center gap-4">
-                    <span v-for="pokeType in data.apiTypes" :key="pokeType.name" class="text-background py-2 px-4 rounded-md">
-                        <NuxtImg :src="pokeType.image" :alt="pokeType.name" class="w-8 h-8" />
-                    </span>
+                    <h2 class="text-2xl font-bold my-2">Types</h2>
+                    <div class="flex justify-center gap-4">
+                        <span v-for="pokeType in data.apiTypes" :key="pokeType.name" class="text-background py-2 px-4 rounded-md">
+                            <NuxtImg :src="pokeType.image" :alt="pokeType.name" class="w-8 h-8" />
+                        </span>
+                    </div>
                 </div>
             </div>
             <div>
                 <h2 class="text-2xl font-bold my-2">Resistances</h2>
                 <div class="flex flex-wrap justify-center gap-4">
-                    <div v-for="resistance in data.apiResistances" :key="resistance.name" class="bg-primary text-background px-4 rounded-md w-24 p-2">
+                    <div v-for="resistance in data.apiResistances" :key="resistance.name" class="bg-primary text-background px-4 rounded-md w-32 p-2">
                         <p>{{ resistance.name }}</p>
                         <p>{{ resistance.damage_relation }}</p>
                         <p>x {{ resistance.damage_multiplier }}</p>
