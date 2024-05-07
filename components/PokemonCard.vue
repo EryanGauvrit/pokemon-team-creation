@@ -16,8 +16,10 @@
                 <p class="text-md mt-2">ATK: {{ pokemon.stats.attack }}</p>
                 <p class="text-md mt-2">DEF: {{ pokemon.stats.defense }}</p>
             </div>
-            <div class="py-4 flex flex-col gap-2">
-                <NuxtLink :to="`/pokemon/${pokemon.id}`" class="w-full bg-primary text-background py-2 rounded-md block text-center hover:bg-secondary duration-200">View details</NuxtLink>
+            <div class="py-4 grid md:grid-cols-2 gap-2">
+                <NuxtLink :to="`/pokemon/${pokemon.id}`" class="w-full bg-primary text-background py-2 rounded-md block text-center hover:bg-secondary duration-200">
+                    <Icon name="ic:baseline-remove-red-eye" class="w-6 h-6" />
+                </NuxtLink>
                 <AddToTeamButton :pokemon="pokemon" />
             </div>
         </div>
